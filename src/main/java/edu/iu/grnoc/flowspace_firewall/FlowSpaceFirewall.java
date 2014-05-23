@@ -277,7 +277,9 @@ public class FlowSpaceFirewall implements IFloodlightModule, IOFMessageListener,
 					if(!updated){
 						logger.warn("Slice "
 								+p.getSlicer().getSliceName()+":" + sw.getStringId() +" was not found, removing");
+						p.removeFlows();
 						p.disconnect();
+						
 						toBeRemoved.add(p);
 					}
 				}
